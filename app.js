@@ -26,7 +26,7 @@ const clickHandler  =(e) => {
     window.alert("不正解");
   }
 };
-// クリックイベント(正誤判定)
+// クリックイベント正誤判定
 
 let handlerIndex = 0;
 while(handlerIndex < btnlength) {
