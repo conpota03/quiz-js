@@ -1,30 +1,50 @@
-const question = "ゲーム市場、最も売れたゲーム機は次のうちどれ？";
-
-const answers = ["A", "B", "C", "D"];
-
-const correct = "A";
-
+const quiz = [
+  {
+    question: '次のうち桜はどれでしょうか',
+    answers: [ 'ソメイヨシノ', 'オリーブ', 'ポインセチア', 'シクラメン'],
+    correct: 'ソメイヨシノ'
+  }, {
+    question: '数の子は何の卵でしょうか？',
+    answers: [ 'イワシ', 'タイ', 'ニシン', 'どじょう'],
+    correct: 'ニシン'
+  }, {
+    question: '春が旬の果物はどれでしょうか？',
+    answers: [ 'スイカ', '柿', 'ユズ', '夏ミカン'],
+    correct: '夏ミカン'
+  }
+];
+const quizLength = quiz.length;
+let quizIndex = 0;
 const $button = document.getElementsByTagName("button");
 const btnlength = $button.length;
 
-
 // クイズの問題文の定義
 const setupQuiz = () =>{
-document.getElementById("js-question").textContent = question;
+document.getElementById("js-question").textContent = quiz[quizIndex].question;
 let btnIndex =0;
 while(btnIndex < btnlength ){
-  $button[btnIndex].textContent = answers[btnIndex];
+  $button[btnIndex].textContent = quiz[quizIndex].answers[btnIndex];
   btnIndex++;
 }}
 setupQuiz();
 
-
 const clickHandler  =(e) => {
-  if (correct === e.target.textContent) {
+  if (quiz[quizIndex].correct === e.target.textContent) {
     window.alert("正解");
-  } else {
+  } 
+  else {
     window.alert("不正解");
   }
+
+  quizIndex++;
+
+  if(quizIndex < quizLength) {
+  // 問題文があれば実行
+  setupQuiz();
+  }else{
+// 問題数がなければ実行
+window.alert('終了');
+}
 };
 // クリックイベント正誤判定
 
