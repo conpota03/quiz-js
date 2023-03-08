@@ -1,20 +1,22 @@
 const quiz = [
   {
     question: '次のうち桜はどれでしょうか',
-    answers: [ 'ソメイヨシノ', 'オリーブ', 'ポインセチア', 'シクラメン'],
+    answers: [ 'ソメイヨシノ', 'ポインセチア', 'シクラメン'],
     correct: 'ソメイヨシノ'
   }, {
     question: '数の子は何の卵でしょうか？',
-    answers: [ 'イワシ', 'タイ', 'ニシン', 'どじょう'],
+    answers: [ 'イワシ', 'タイ', 'ニシン'],
     correct: 'ニシン'
   }, {
     question: '春が旬の果物はどれでしょうか？',
-    answers: [ 'スイカ', '柿', 'ユズ', '夏ミカン'],
+    answers: [ 'スイカ', 'ユズ', '夏ミカン'],
     correct: '夏ミカン'
   }
 ];
 const quizLength = quiz.length;
 let quizIndex = 0;
+let score = 0;
+
 const $button = document.getElementsByTagName("button");
 const btnlength = $button.length;
 
@@ -31,6 +33,7 @@ setupQuiz();
 const clickHandler  =(e) => {
   if (quiz[quizIndex].correct === e.target.textContent) {
     window.alert("正解");
+    score++;
   } 
   else {
     window.alert("不正解");
@@ -43,7 +46,7 @@ const clickHandler  =(e) => {
   setupQuiz();
   }else{
 // 問題数がなければ実行
-window.alert('終了');
+window.alert('終了。あなたの正解数は' + score + '/' +quizLength + 'です！  ');
 }
 };
 // クリックイベント正誤判定
