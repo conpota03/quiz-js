@@ -16,8 +16,14 @@ const quiz = [
     question: '花粉が一日のうちに一番多く飛んでいるのはいつの時間帯でしょうか？',
     answers: [ '早朝', '夜', '昼'],
     correct: '昼'
+  }, {
+    question: '立春から春分にかけて吹く強い風のことをなんという？',
+    answers: [ '春一番', '春台風', '春元気'],
+    correct: '春一番'
   }
 ];
+quiz.sort(() => Math.random() - 0.5);
+
 const quizLength = quiz.length;
 let quizIndex = 0;
 let score = 0;
@@ -63,3 +69,4 @@ while(handlerIndex < btnlength) {
   });
   handlerIndex++;
 }
+quiz.sort(() => Math.random() - 0.5);
