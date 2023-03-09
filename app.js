@@ -1,3 +1,4 @@
+// クイズの問題文、選択肢、正解を定義
 const quiz = [
   {
     question: '次のうち桜はどれでしょうか',
@@ -11,6 +12,10 @@ const quiz = [
     question: '春が旬の果物はどれでしょうか？',
     answers: [ 'スイカ', 'ユズ', '夏ミカン'],
     correct: '夏ミカン'
+  }, {
+    question: '花粉が一日のうちに一番多く飛んでいるのはいつの時間帯でしょうか？',
+    answers: [ '早朝', '夜', '昼'],
+    correct: '昼'
   }
 ];
 const quizLength = quiz.length;
