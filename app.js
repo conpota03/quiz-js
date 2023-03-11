@@ -25,7 +25,6 @@ const quiz = [
 quiz.sort(() => Math.random() - 0.5);
 
 const quizLength = quiz.length;
-const d =new Date();
 let quizIndex = 0;
 let score = 0;
 
@@ -33,7 +32,7 @@ const $button = document.getElementsByTagName("button");
 const btnlength = $button.length;
 
 // クイズの問題文の定義
-let startTime = d.getTime();
+let startTime = new Date().getTime();
 const setupQuiz = () =>{
 document.getElementById("js-question").textContent = quiz[quizIndex].question;
 let btnIndex =0;
@@ -59,8 +58,9 @@ const clickHandler  =(e) => {
   setupQuiz();
   }else{
 // 問題数がなければ実行
-let endTime = d.getTime();
+let endTime = new Date().getTime();
 let elapsedTime = (endTime - startTime) / 1000;
+const d = new Date();
 window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}で、所要時間は${elapsedTime}秒でした。`);
 }
 };
