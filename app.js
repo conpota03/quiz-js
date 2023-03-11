@@ -32,6 +32,7 @@ const $button = document.getElementsByTagName("button");
 const btnlength = $button.length;
 
 // クイズの問題文の定義
+const d = new Date();
 const setupQuiz = () =>{
 document.getElementById("js-question").textContent = quiz[quizIndex].question;
 let btnIndex =0;
@@ -57,7 +58,7 @@ const clickHandler  =(e) => {
   setupQuiz();
   }else{
 // 問題数がなければ実行
-window.alert('終了。あなたの正解数は' + score + '/' +quizLength + 'です！  ');
+window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}です！`);
 }
 };
 // クリックイベント正誤判定
