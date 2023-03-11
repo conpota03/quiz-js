@@ -25,6 +25,7 @@ const quiz = [
 quiz.sort(() => Math.random() - 0.5);
 
 const quizLength = quiz.length;
+const d =new Date();
 let quizIndex = 0;
 let score = 0;
 
@@ -32,7 +33,7 @@ const $button = document.getElementsByTagName("button");
 const btnlength = $button.length;
 
 // クイズの問題文の定義
-const d = new Date();
+let startTime = d.getTime();
 const setupQuiz = () =>{
 document.getElementById("js-question").textContent = quiz[quizIndex].question;
 let btnIndex =0;
@@ -58,7 +59,9 @@ const clickHandler  =(e) => {
   setupQuiz();
   }else{
 // 問題数がなければ実行
-window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}です！`);
+let endTime = d.getTime();
+let elapsedTime = (endTime - startTime) / 1000;
+window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}で、所要時間は${elapsedTime}秒でした。`);
 }
 };
 // クリックイベント正誤判定
@@ -70,4 +73,3 @@ while(handlerIndex < btnlength) {
   });
   handlerIndex++;
 }
-quiz.sort(() => Math.random() - 0.5);
