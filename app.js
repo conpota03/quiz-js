@@ -82,7 +82,7 @@ let endTime = new Date().getTime();
 let elapsedTime = (endTime - startTime) / 1000;
 const d = new Date();
 stopCountUp();
-window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}で、所要時間は${elapsedTime}秒、クイズの回答時間は${document.getElementById("timer").textContent}秒、でした。`);
+window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}で、所要時間は${elapsedTime}秒、クイズの回答にかかった時間は${document.getElementById("timer").textContent}秒、でした。`);
 }
 };
 // クリックイベント正誤判定
