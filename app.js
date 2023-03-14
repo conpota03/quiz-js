@@ -51,7 +51,6 @@ const stopCountUp = () => {
   clearInterval(timerId);
 }
 
-
 // クイズの問題文の定義
 const quizLength = quiz.length;
 const setupQuiz = () =>{
