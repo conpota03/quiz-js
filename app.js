@@ -1,6 +1,7 @@
 window.onload = () =>{
-  window.alert("準備ができたらOKを押してください。春に関する3択クイズ!(ランダム5問)が始まります。")
-};
+  window.alert("準備ができたらOKを押してください。春に関する3択クイズ!(ランダム5問)が始まります。");
+    countUp("timer");
+  };
 
 // クイズの問題文、選択肢、正解を定義
 const quiz = [
@@ -49,7 +50,6 @@ const stopCountUp = () => {
   clearInterval(timerId);
 }
 
-countUp("timer");
 
 // クイズの問題文の定義
 const quizLength = quiz.length;
@@ -94,9 +94,3 @@ while(handlerIndex < btnlength) {
   });
   handlerIndex++;
 }
-
-
-
-const startBtn = document.getElementById("start");
-startBtn.addEventListener("click", () => {
-});
