@@ -1,3 +1,7 @@
+window.onload = () =>{
+  window.alert("準備ができたらOKを押してください。春に関する3択クイズ!(ランダム5問)が始まります。")
+};
+
 // クイズの問題文、選択肢、正解を定義
 const quiz = [
   {
@@ -22,17 +26,33 @@ const quiz = [
     correct: '春一番'
   }
 ];
-quiz.sort(() => Math.random() - 0.5);
 
-const quizLength = quiz.length;
 let quizIndex = 0;
 let score = 0;
+let timerId;
+let startTime = new Date().getTime();
 
+// クイズ数
 const $button = document.getElementsByTagName("button");
 const btnlength = $button.length;
 
+// タイマーカウント
+const countUp = (id) => {
+  const $target = document.getElementById(id);
+  let count = 0;
+  timerId = setInterval(() => {
+    count += 0.01;
+    $target.textContent = count.toFixed(2);
+  }, 10);
+};
+const stopCountUp = () => {
+  clearInterval(timerId);
+}
+
+countUp("timer");
+
 // クイズの問題文の定義
-let startTime = new Date().getTime();
+const quizLength = quiz.length;
 const setupQuiz = () =>{
 document.getElementById("js-question").textContent = quiz[quizIndex].question;
 let btnIndex =0;
@@ -61,7 +81,8 @@ const clickHandler  =(e) => {
 let endTime = new Date().getTime();
 let elapsedTime = (endTime - startTime) / 1000;
 const d = new Date();
-window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}で、所要時間は${elapsedTime}秒でした。`);
+stopCountUp();
+window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}で、所要時間は${elapsedTime}秒、クイズの回答時間は${document.getElementById("timer").textContent}秒、でした。`);
 }
 };
 // クリックイベント正誤判定
@@ -73,3 +94,9 @@ while(handlerIndex < btnlength) {
   });
   handlerIndex++;
 }
+
+
+
+const startBtn = document.getElementById("start");
+startBtn.addEventListener("click", () => {
+});
