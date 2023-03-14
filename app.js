@@ -1,6 +1,7 @@
 window.onload = () =>{
-  window.alert("準備ができたらOKを押してください。春に関する3択クイズ!(ランダム5問)が始まります。")
-};
+  window.alert("準備ができたらOKを押してください。春に関する3択クイズ!(ランダム5問)が始まります。");
+    countUp("timer");
+  };
 
 // クイズの問題文、選択肢、正解を定義
 const quiz = [
@@ -36,6 +37,7 @@ let startTime = new Date().getTime();
 const $button = document.getElementsByTagName("button");
 const btnlength = $button.length;
 
+
 // タイマーカウント
 const countUp = (id) => {
   const $target = document.getElementById(id);
@@ -49,7 +51,6 @@ const stopCountUp = () => {
   clearInterval(timerId);
 }
 
-countUp("timer");
 
 // クイズの問題文の定義
 const quizLength = quiz.length;
@@ -82,7 +83,7 @@ let endTime = new Date().getTime();
 let elapsedTime = (endTime - startTime) / 1000;
 const d = new Date();
 stopCountUp();
-window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}で、所要時間は${elapsedTime}秒、クイズの回答時間は${document.getElementById("timer").textContent}秒、でした。`);
+window.alert(`終了。あなたの${d.getMonth() + 1}月${d.getDate()}日時点の正解数は${score}/${quizLength}で、最後のクイズまでの所要時間は${elapsedTime}秒、回答にかかった時間は${document.getElementById("timer").textContent}秒、でした。`);
 }
 };
 // クリックイベント正誤判定
@@ -94,9 +95,3 @@ while(handlerIndex < btnlength) {
   });
   handlerIndex++;
 }
-
-
-
-const startBtn = document.getElementById("start");
-startBtn.addEventListener("click", () => {
-});
