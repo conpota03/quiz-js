@@ -4,7 +4,6 @@ window.onload = () =>{
   };
 
 // クイズの問題文、選択肢、正解を定義
-quiz.sort(() => Math.random() - 0.5);
 const quiz = [
   {
     question: '次のうち桜はどれでしょうか',
@@ -53,6 +52,7 @@ const stopCountUp = () => {
 }
 
 // クイズの問題文の定義
+quiz.sort(() => Math.random() - 0.5);
 const quizLength = quiz.length;
 const setupQuiz = () =>{
 document.getElementById("js-question").textContent = quiz[quizIndex].question;
