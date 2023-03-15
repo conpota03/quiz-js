@@ -4,6 +4,7 @@ window.onload = () =>{
   };
 
 // クイズの問題文、選択肢、正解を定義
+quiz.sort(() => Math.random() - 0.5);
 const quiz = [
   {
     question: '次のうち桜はどれでしょうか',
