@@ -27,15 +27,17 @@ const quiz = [
     correct: '春一番'
   }
 ];
-
+var No = document.getElementById("Qno");
 let quizIndex = 0;
 let score = 0;
 let timerId;
 let startTime = new Date().getTime();
+let QnoIndex = 1;
 
 // クイズ数
 const $button = document.getElementsByTagName("button");
 const btnlength = $button.length;
+
 
 
 // タイマーカウント
@@ -50,6 +52,8 @@ const countUp = (id) => {
 const stopCountUp = () => {
   clearInterval(timerId);
 }
+
+document.getElementById("Qno").innerHTML = "今5問中"+ QnoIndex + "問名";
 
 // クイズの問題文の定義
 quiz.sort(() => Math.random() - 0.5);
@@ -77,6 +81,8 @@ const clickHandler  =(e) => {
   if(quizIndex < quizLength) {
   // 問題文があれば実行
   setupQuiz();
+  QnoIndex++;
+  document.getElementById("Qno").innerHTML = "今5問中"+ QnoIndex + "問名";
   }else{
 // 問題数がなければ実行
 let endTime = new Date().getTime();
